@@ -30,7 +30,7 @@ export default function SignUp() {
       }
       setLoading(false);
       if(res.ok) {
-        navigate('/sign-in');
+        navigate('/signin');
       }
     } catch (error) {
       setErrorMessage(error.message);
@@ -70,7 +70,7 @@ export default function SignUp() {
               <Label value='Your email' />
               <TextInput
                 type='email'
-                placeholder='name@company.com'
+                placeholder='email address'
                 id='email'
                 onChange={handleChange}
               />

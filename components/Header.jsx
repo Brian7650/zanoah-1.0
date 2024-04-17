@@ -70,7 +70,7 @@ export default function Header() {
             {/* <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item> */}
           </Dropdown>
         ) : (
-          <Link to='/sign-in'>
+          <Link to='/SignIn'>
             <Button gradientDuoTone='purpleToBlue' outline>
               Sign In
             </Button>
