@@ -7,6 +7,7 @@ import Comics from './pages/Comics';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Header from './components/Header';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
           <Route path='/SignIn' element={<SignIn />} />
           <Route path='/SignUp' element={<SignUp />} />
       </Routes>
+    <Footer />
     </BrowserRouter>
+    
   )
 }
 
