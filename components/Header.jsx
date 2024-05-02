@@ -2,12 +2,13 @@
 import { AiOutlineSearch } from 'react-icons/ai';
 import { FaMoon, FaSun } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
-import { Navbar, TextInput, Button, Dropdown } from 'flowbite-react';
+import { Avatar, Navbar, TextInput, Button, Dropdown } from 'flowbite-react';
+import { useSelector } from 'react-redux';
 
 export default function Header() {
   
   const path = useLocation().pathname;
-
+  const { currentUser } = useSelector((state) => state.user);
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
@@ -18,7 +19,7 @@ export default function Header() {
   // Assuming you have theme and currentUser state and toggleTheme and dispatch function
   // Replace the following lines with your actual implementation
   const theme = 'light';
-  const currentUser = null; // Replace null with your current user object
+  // const currentUser = null; // Replace null with your current user object
 
   return (
     <Navbar className="border-b-2">
@@ -49,13 +50,14 @@ export default function Header() {
         >
           {theme === 'light' ? <FaSun /> : <FaMoon />}
         </Button>
+
         {currentUser ? (
           <Dropdown
             arrowIcon={false}
             inline
-            // label={
-            //   <Avatar alt='user' img={currentUser.profilePicture} rounded />
-            // }
+            label={
+              <Avatar alt='user' img={currentUser.profilePicture} rounded />
+            }
           >
             <Dropdown.Header>
               <span className='block text-sm'>@{currentUser.username}</span>
@@ -67,10 +69,10 @@ export default function Header() {
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
-            {/* <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item> */}
+            <Dropdown.Item >Sign out</Dropdown.Item>
           </Dropdown>
         ) : (
-          <Link to='/SignIn'>
+          <Link to='/sign-in'>
             <Button gradientDuoTone='purpleToBlue' outline>
               Sign In
             </Button>
