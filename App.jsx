@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './App.css'
+// import './App.css'
 import Home from './pages/Home';
+import Dashboard from './pages/Dashboard';
 import Gaming from './pages/Gaming';
 import Tech from './pages/Tech';
 import Comics from './pages/Comics';
@@ -8,11 +9,10 @@ import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import PrivateRoute from './components/PrivateRoute';
 
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
     <Header />
@@ -21,8 +21,10 @@ function App() {
           <Route path='/Gaming' element={<Gaming />} />
           <Route path='/Tech' element={<Tech />} />
           <Route path='/Comics' element={<Comics />} />
+          <Route  element={<PrivateRoute />} />
           <Route path='/SignIn' element={<SignIn />} />
           <Route path='/SignUp' element={<SignUp />} />
+          <Route path='/Dashboard' element={<Dashboard />} />
       </Routes>
     <Footer />
     </BrowserRouter>
@@ -31,14 +33,3 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
-
-{/* <>
-     <h1 className="text-blue-600/75 text-8xl font-bold underline">
-      Hello world!
-    </h1>
-    </> */}
