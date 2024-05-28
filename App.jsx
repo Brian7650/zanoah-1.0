@@ -10,6 +10,8 @@ import SignIn from './pages/SignIn';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
+import OnlyAdminPrivateRoute from './components/OnlyAdminPrivateRoute';
+import CreatePost from './pages/CreatePost';
 
 
 function App() {
@@ -18,13 +20,20 @@ function App() {
     <Header />
       <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/Gaming' element={<Gaming />} />
-          <Route path='/Tech' element={<Tech />} />
-          <Route path='/Comics' element={<Comics />} />
+          <Route path='/gaming' element={<Gaming />} />
+          <Route path='/tech' element={<Tech />} />
+          <Route path='/comics' element={<Comics />} />
+          
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
           <Route  element={<PrivateRoute />} />
-          <Route path='/SignIn' element={<SignIn />} />
-          <Route path='/SignUp' element={<SignUp />} />
-          <Route path='/Dashboard' element={<Dashboard />} />
+            <Route path='/dashboard' element={<Dashboard />} />
+          <Route/>
+          <Route  element={<OnlyAdminPrivateRoute />} />
+            <Route path='/create-post' element={<CreatePost />} />
+          <Route/>
+
+
       </Routes>
     <Footer />
     </BrowserRouter>
